@@ -1,0 +1,138 @@
+@font-face {
+	font-family: coco;
+	src: url(coco.ttf);
+}
+@font-face {
+	font-family: co;
+	src: url(co.otf);
+}
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+body {
+	background-color: #17252A;
+}
+.container {
+	height: 100svh;
+}
+.search {
+	display: flex;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+input {
+	padding: 11px 20px;
+	background-color: #CDCDCD;
+	outline: none;
+	border: none;
+	width: 40%;
+	text-transform: uppercase;
+	font-size: 15px;
+	letter-spacing: 1px;
+}
+.ser {
+	font-size: 21px;
+	position: relative;
+	right: 36px;
+	background-color: white;
+	padding: 8px;
+	cursor: pointer;
+	transition: .3s;
+}
+input::placeholder {
+	text-transform: none;
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.ser:hover {
+	background-color: transparent;
+}
+.containe {
+	position: relative;
+	top: 140px;
+}
+.two {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+#meteo {
+	background: url(paris.jpg);
+	background-size: cover;
+	background-position: center;
+	width: 750px;
+	height: 350px;
+	border-bottom: 7px solid #07657A;
+	border-right: 7px solid #07657A;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: column;
+	transition: .7s;
+	scale: 0;
+}
+.map {
+	background: url(scc.png);
+	background-size: cover;
+	background-position: center;
+	width: 650px;
+	height: 350px;
+	scale: 0;
+	transition: .6s;
+}
+.met {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 55px;
+	background-color: #81D1FF;
+	width: 82.5%;
+	height: 190px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 100px;
+	text-transform: uppercase;
+	font-family: coco;
+	letter-spacing: 70px;
+	border-bottom: 7px solid #07657A;
+	border-right: 7px solid #07657A;
+	transition: .4s;
+	scale: 0;
+}
+.all {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	letter-spacing: 1px;
+	font-size: 20px;
+	height: 107px;
+}
+.name {
+	letter-spacing: 10px;
+	font-size: 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: co;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.sec {
+	display: flex;
+	width: 924px;
+	justify-content: space-evenly;
+	align-items: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+#speed {
+	text-transform: none;
+}
