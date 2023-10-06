@@ -153,3 +153,13 @@ input::placeholder {
 		height: 214px;
 	}
 }
+@media screen and (max-width: 1443px) and (max-height: 844px){
+	.two {
+		flex-flow: column;
+		justify-content: space-evenly;
+		height: 778px;
+	}
+	.containe {
+		top: 42px;
+	}
+}
