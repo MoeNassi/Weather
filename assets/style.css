@@ -60,11 +60,13 @@ input::placeholder {
 	justify-content: space-evenly;
 	align-items: center;
 }
-#meteo {
+.meteo {
 	background: url(paris.jpg);
+	backdrop-filter: blur(4px);
 	background-size: cover;
 	background-position: center;
 	width: 750px;
+	color: rgb(255, 255, 255);
 	height: 350px;
 	border-bottom: 7px solid #07657A;
 	border-right: 7px solid #07657A;
@@ -74,6 +76,10 @@ input::placeholder {
 	flex-flow: column;
 	transition: .7s;
 	scale: 0;
+}
+.name {
+	color: transparent;
+	-webkit-text-stroke: 1px rgb(255, 255, 255);
 }
 .map {
 	background: url(scc.png);
@@ -135,4 +141,15 @@ input::placeholder {
 }
 #speed {
 	text-transform: none;
+}
+@media screen and (min-width: 1920px) and (min-height: 1051px) {
+	#meteo {
+		height: 496px;
+		width: 994px;
+	}
+	.met {
+		width: 81%;
+		top: 92px;
+		height: 214px;
+	}
 }
