@@ -1,11 +1,26 @@
-// import { createClient } from 'pexels';
 var input = document.querySelector('input');
 var key = document.querySelector('.ser');
-var status = document.getElementById('meteo');
-const name = document.getElementById('name');
 const degree = document.getElementById('degree');
 const humidity = document.getElementById('humidity');
 const speed = document.getElementById('speed');
+
+function apply(response, Data) {
+	if (response.ok) {
+		document.getElementById('name').innerHTML = Data.name;
+		degree.innerHTML = Math.round(Data.main.temp) + " °C";
+		humidity.innerHTML = "Humidity : " + Data.main.humidity + "%";
+		speed.innerHTML = "Speed : " + Data.wind.speed  + " km/h";
+		document.getElementById('meteo').style.scale = "1";
+		document.querySelector('.met').style.scale = "1";
+		document.querySelector('.map').style.scale = "1";
+	}
+	else {
+		document.getElementById('meteo').style.scale = "0";
+		document.querySelector('.met').style.scale = "0";
+		document.querySelector('.map').style.scale = "0";
+		document.querySelector('.search input').value = "";
+	}
+}
 
 async function Get_Data(city) {
 	const API = "c40efb3e7eb11fcda1990f0825583ede";
@@ -22,29 +37,13 @@ async function Get_Data(city) {
 			Authorization: API_K
 		}
 	})
-	const data_ = await _resp.json(); 
-	console.log(data_)
+	const data_ = await _resp.json();
 	let ran = Math.floor(Math.random() * 15);
-	console.log(data_.photos[0].length);
 	document.getElementById('meteo').style.background = `url(${data_.photos[ran].src.landscape})`
-
+	
 	var response = await fetch(URL + city + `&appid=${API}&units=metric`);
-	if (response.ok) {
-		var Data = await response.json();
-		name.innerHTML = Data.name;
-		degree.innerHTML = Math.round(Data.main.temp) + " °C";
-		humidity.innerHTML = "Humidity : " + Data.main.humidity + "%";
-		speed.innerHTML = "Speed : " + Data.wind.speed  + " km/h";
-		document.getElementById('meteo').style.scale = "1";
-		document.querySelector('.met').style.scale = "1";
-		document.querySelector('.map').style.scale = "1";
-		console.log(Data);
-	}
-	else {
-		document.getElementById('meteo').style.scale = "0";
-		document.querySelector('.met').style.scale = "0";
-		document.querySelector('.map').style.scale = "0";
-	}
+	var Data = await response.json();
+	apply(response, Data);
 }
 
 input.addEventListener('keydown', function(event) {

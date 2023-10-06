@@ -13,6 +13,9 @@
 }
 body {
 	background-color: #17252A;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center;
 }
 .container {
 	height: 100svh;
@@ -66,6 +69,7 @@ input::placeholder {
 	background-size: cover;
 	background-position: center;
 	width: 750px;
+	border: 7px solid rgb(0, 161, 201);
 	color: rgb(255, 255, 255);
 	height: 350px;
 	border-bottom: 7px solid #07657A;
@@ -94,13 +98,14 @@ input::placeholder {
 	position: relative;
 	left: 50%;
 	transform: translateX(-50%);
-	top: 55px;
-	background-color: #81D1FF;
-	width: 82.5%;
-	height: 190px;
+	top: 70px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: rgb(255, 255, 255);
+	border: 7px solid rgb(0, 161, 201);
+	width: 1575px;
+	height: 190px;
 	font-size: 100px;
 	text-transform: uppercase;
 	font-family: coco;
