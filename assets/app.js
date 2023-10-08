@@ -3,13 +3,21 @@ var key = document.querySelector('.ser');
 const degree = document.getElementById('degree');
 const humidity = document.getElementById('humidity');
 const speed = document.getElementById('speed');
+const d = document.getElementById('map');
+
+var map = L.map(d).setView([51.505, -0.09], 13);
+
+var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+osm.addTo(map);
 
 function apply(response, Data) {
 	if (response.ok) {
-		document.getElementById('name').innerHTML = Data.name;
-		degree.innerHTML = Math.round(Data.main.temp) + " °C";
-		humidity.innerHTML = "Humidity : " + Data.main.humidity + "%";
-		speed.innerHTML = "Speed : " + Data.wind.speed  + " km/h";
+		document.getElementById('name').textContent = Data.name;
+		degree.textContent = Math.round(Data.main.temp) + " °C";
+		humidity.textContent = "Humidity : " + Data.main.humidity + "%";
+		speed.textContent = "Speed : " + Data.wind.speed  + " km/h";
 		document.getElementById('meteo').style.scale = "1";
 		document.querySelector('.met').style.scale = "1";
 		document.querySelector('.map').style.scale = "1";
@@ -37,19 +45,22 @@ async function Get_Data(city) {
 			Authorization: API_K
 		}
 	})
-	const data_ = await _resp.json();
-	let ran = Math.floor(Math.random() * 15);
-	document.getElementById('meteo').style.background = `url(${data_.photos[ran].src.landscape})`
-	
 	var response = await fetch(URL + city + `&appid=${API}&units=metric`);
 	var Data = await response.json();
 	apply(response, Data);
+	const data_ = await _resp.json();
+	let ran = Math.floor(Math.random() * 15);
+	if (data_.photos[ran])
+		document.getElementById('meteo').style.background = `url(${data_.photos[ran].src.landscape})`
+	else
+		document.getElementById('meteo').style.background = `url(${data_.photos[0].src.landscape})`
 }
 
 input.addEventListener('keydown', function(event) {
 	if (event.key == "Enter")
 		Get_Data(input.value);
 });
+
 key.addEventListener('click', () => {
 	Get_Data(input.value);
 });

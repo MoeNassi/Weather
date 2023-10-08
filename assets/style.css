@@ -13,12 +13,11 @@
 }
 body {
 	background-color: #17252A;
-	overflow: hidden;
 	background-size: cover;
 	background-position: center;
 }
 .container {
-	height: 100svh;
+	height: 1000px;
 }
 .search {
 	display: flex;
@@ -57,6 +56,7 @@ input::placeholder {
 .containe {
 	position: relative;
 	top: 140px;
+	height: 100svh;
 }
 .two {
 	display: flex;
@@ -66,6 +66,8 @@ input::placeholder {
 .meteo {
 	background: url(paris.jpg);
 	backdrop-filter: blur(4px);
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	background-size: cover;
 	background-position: center;
 	width: 750px;
@@ -82,16 +84,16 @@ input::placeholder {
 	scale: 0;
 }
 .name {
-	color: transparent;
-	-webkit-text-stroke: 1px rgb(255, 255, 255);
+	color: rgb(255, 255, 255);
+	-webkit-text-stroke: 2px rgb(0, 0, 0);
 }
 .map {
-	background: url(scc.png);
-	background-size: cover;
-	background-position: center;
 	width: 650px;
 	height: 350px;
 	scale: 0;
+	border: 7px solid rgb(0, 161, 201);
+	border-bottom: 7px solid #07657A;
+	border-right: 7px solid #07657A;
 	transition: .6s;
 }
 .met {
@@ -124,6 +126,7 @@ input::placeholder {
 	letter-spacing: 1px;
 	font-size: 20px;
 	height: 107px;
+	-webkit-text-stroke: 2px rgb(0, 0, 0);
 }
 .name {
 	letter-spacing: 10px;
@@ -134,6 +137,8 @@ input::placeholder {
 	font-family: co;
 	font-weight: bold;
 	text-transform: uppercase;
+	max-width: 10px;
+	text-align: center;
 }
 .sec {
 	display: flex;
@@ -142,6 +147,7 @@ input::placeholder {
 	align-items: center;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bold;
+	-webkit-text-stroke: 1.5px rgb(0, 0, 0);
 	text-transform: capitalize;
 }
 #speed {
@@ -150,7 +156,7 @@ input::placeholder {
 @media screen and (min-width: 1920px) and (min-height: 1051px) {
 	#meteo {
 		height: 496px;
-		width: 994px;
+		width: 856px;
 	}
 	.met {
 		width: 81%;
@@ -158,13 +164,22 @@ input::placeholder {
 		height: 214px;
 	}
 }
-@media screen and (max-width: 1443px) and (max-height: 844px){
+@media screen and (max-width: 1438px) {
 	.two {
 		flex-flow: column;
 		justify-content: space-evenly;
-		height: 778px;
+		height: 854px;
 	}
 	.containe {
 		top: 42px;
+	}
+}
+@media screen and (max-width: 1354px) {
+	.met {
+		width: 750px;
+		font-size: 60px;
+	}
+	.containe {
+		top: 150px;
 	}
 }
